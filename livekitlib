@@ -641,7 +641,7 @@ change_root()
    if [ "$INIT" = "" ]; then fatal "Can't find executable init command"; fi
 
    mkdir -p mnt/live
-   mount -n -o remount,ro aufs .
+   mount -n -o remount,rw aufs .
    pivot_root . mnt/live
    exec $CHROOT . $INIT < dev/console > dev/console 2>&1
 }
